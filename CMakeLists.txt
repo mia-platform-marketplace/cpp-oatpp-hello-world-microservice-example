@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.1)
 
-set(project_name my-project) ## rename your project here
+set(project_name mia-platform-cpp-helloworld) ## rename your project here
 
 project(${project_name})
 
@@ -28,16 +28,16 @@ target_include_directories(${project_name}-lib PUBLIC src)
 
 add_executable(${project_name}-exe
         src/App.cpp
-        test/app/MyApiTestClient.hpp)
+        test/app/HelloApiTestClient.hpp)
 target_link_libraries(${project_name}-exe ${project_name}-lib)
 add_dependencies(${project_name}-exe ${project_name}-lib)
 
 add_executable(${project_name}-test
         test/tests.cpp
         test/app/TestComponent.hpp
-        test/app/MyApiTestClient.hpp
-        test/MyControllerTest.cpp
-        test/MyControllerTest.hpp
+        test/app/HelloApiTestClient.hpp
+        test/HelloControllerTest.cpp
+        test/HelloControllerTest.hpp
 )
 
 target_link_libraries(${project_name}-test ${project_name}-lib)

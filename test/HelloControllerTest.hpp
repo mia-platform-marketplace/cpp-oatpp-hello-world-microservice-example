@@ -2,17 +2,17 @@
 // Created by Leonid  on 2019-06-07.
 //
 
-#ifndef MyControllerTest_hpp
-#define MyControllerTest_hpp
+#ifndef HelloControllerTest_hpp
+#define HelloControllerTest_hpp
 
 #include "oatpp-test/UnitTest.hpp"
 
-class MyControllerTest : public oatpp::test::UnitTest {
+class HelloControllerTest : public oatpp::test::UnitTest {
 public:
 
-  MyControllerTest() : UnitTest("TEST[MyControllerTest]"){}
+  HelloControllerTest() : UnitTest("TEST[HelloControllerTest]"){}
   void onRun() override;
 
 };
 
-#endif // MyControllerTest_hpp
+#endif // HelloControllerTest_hpp

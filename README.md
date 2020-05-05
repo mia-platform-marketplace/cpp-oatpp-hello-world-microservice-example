@@ -1,5 +1,18 @@
 # Hello in C++
 
+based on oat++
+
+***** TODO ******
+
+valutare anche template con lib
+
+https://github.com/ipkn/crow (attenzione che deriva da nginx)
+https://github.com/uNetworking/uWebSockets
+https://github.com/yhirose/cpp-httplib
+
+e poi in java con https://github.com/netty/netty/blob/4.1/example/src/main/java/io/netty/example/http/helloworld/HttpHelloWorldServer.java
+
+
 ## Overview
 
 ### Project layout

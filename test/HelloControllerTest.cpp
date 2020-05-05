@@ -1,43 +1,41 @@
-//
-// Created by Leonid  on 2019-06-07.
-//
+/*
+ * Copyright 2020 Mia srl
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * 
+ * This project is a derivative work from oatpp-web-starter
+ */
 
 #include "HelloControllerTest.hpp"
-
-#include "controller/MyController.hpp"
-
-#include "app/MyApiTestClient.hpp"
+#include "controller/HelloController.hpp"
+#include "app/HelloApiTestClient.hpp"
 #include "app/TestComponent.hpp"
-
 #include "oatpp/web/client/HttpRequestExecutor.hpp"
-
 #include "oatpp-test/web/ClientServerTestRunner.hpp"
 
-void MyControllerTest::onRun() {
+void HelloControllerTest::onRun() {
 
-  /* Register test components */
+  
   TestComponent component;
-
-  /* Create client-server test runner */
   oatpp::test::web::ClientServerTestRunner runner;
+  runner.addController(std::make_shared<HelloController>());
 
-  /* Add MyController endpoints to the router of the test server */
-  runner.addController(std::make_shared<MyController>());
-
-  /* Run test */
   runner.run([this, &runner] {
 
-    /* Get client connection provider for Api Client */
     OATPP_COMPONENT(std::shared_ptr<oatpp::network::ClientConnectionProvider>, clientConnectionProvider);
-
-    /* Get object mapper component */
     OATPP_COMPONENT(std::shared_ptr<oatpp::data::mapping::ObjectMapper>, objectMapper);
-
-    /* Create http request executor for Api Client */
     auto requestExecutor = oatpp::web::client::HttpRequestExecutor::createShared(clientConnectionProvider);
-
-    /* Create Test API client */
-    auto client = MyApiTestClient::createShared(requestExecutor, objectMapper);
+    auto client = HelloApiTestClient::createShared(requestExecutor, objectMapper);
 
     /* Call server API */
     /* Call root endpoint of MyController */

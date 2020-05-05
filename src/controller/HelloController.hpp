@@ -15,6 +15,7 @@
  * 
  * This project is a derivative work from oatpp-web-starter
  */
+
 #ifndef HelloController_hpp
 #define HelloController_hpp
 
@@ -27,13 +28,13 @@
 /**
  * Sample Api Controller.
  */
-class MyController : public oatpp::web::server::api::ApiController {
+class HelloController : public oatpp::web::server::api::ApiController {
 public:
   /**
    * Constructor with object mapper.
    * @param objectMapper - default object mapper used to serialize/deserialize DTOs.
    */
-  MyController(OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper))
+  HelloController(OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper))
     : oatpp::web::server::api::ApiController(objectMapper)
   {}
 public:
