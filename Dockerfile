@@ -33,4 +33,4 @@ LABEL maintainer="%CUSTOM_PLUGIN_CREATOR_USERNAME%" \
       eu.mia-platform.language="c++" \
       eu.mia-platform.framework="oat++"
 
-ENTRYPOINT ["./mia-platform-cpp-helloworld-exe"]
+CMD ["./mia-platform-cpp-helloworld-exe"]
