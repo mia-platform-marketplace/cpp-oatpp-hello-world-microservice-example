@@ -17,9 +17,11 @@
  */
 
 #include "./controller/HelloController.hpp"
+#include "./controller/StatusController.hpp"
 #include "./AppComponent.hpp"
 
 #include "oatpp/network/server/Server.hpp"
+
 
 #include <iostream>
 
@@ -29,6 +31,12 @@ void run() {
 
   OATPP_COMPONENT(std::shared_ptr<oatpp::web::server::HttpRouter>, router);
 
+
+  auto statusController = std::make_shared<StatusController>();
+  statusController->addEndpointsToRouter(router);
+
+  auto swaggerController = oatpp::swagger::Controller::createShared(<list-of-endpoints-to-document>);
+  swaggerController->addEndpointsToRouter(router);
 
   auto helloController = std::make_shared<HelloController>();
   helloController->addEndpointsToRouter(router);

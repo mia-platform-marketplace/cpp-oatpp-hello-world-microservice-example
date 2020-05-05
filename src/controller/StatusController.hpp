@@ -16,52 +16,50 @@
  * This project is a derivative work from oatpp-web-starter
  */
 
-#ifndef HelloController_hpp
-#define HelloController_hpp
+#ifndef StatusController_hpp
+#define StatusController_hpp
 
-#include "dto/HelloDto.hpp"
+#include "dto/StatusDto.hpp"
 
 #include "oatpp/web/server/api/ApiController.hpp"
 #include "oatpp/core/macro/codegen.hpp"
 #include "oatpp/core/macro/component.hpp"
 
-/**
- * Sample Api Controller.
- */
-class HelloController : public oatpp::web::server::api::ApiController {
+
+class StatusController : public oatpp::web::server::api::ApiController {
 public:
   /**
    * Constructor with object mapper.
    * @param objectMapper - default object mapper used to serialize/deserialize DTOs.
    */
-  HelloController(OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper))
+  StatusController(OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper))
     : oatpp::web::server::api::ApiController(objectMapper)
   {}
+  
 public:
   
 /**
  *  Begin ENDPOINTs generation ('ApiController' codegen)
  */
 #include OATPP_CODEGEN_BEGIN(ApiController)
-
-
-  ENDPOINT_INFO(hello) {
-    // general
-    info->summary = "Say hello";
-    info->addResponse<HelloDto::ObjectWrapper>(Status::CODE_200, "application/json");
-    info->addResponse<String>(Status::CODE_404, "text/plain");
-    // params specific
-    info->pathParams["username"].description = "Username";
-  }
   
-  ENDPOINT("GET", "/hello/{username}", hello) {
-    auto dto = HelloDto::createShared();
-    dto->statusCode = 200;
-    dto->message = "Hello World!";
+  ENDPOINT("GET", "/-/ready", ready) {
+    auto dto = StatusDto::createShared();
+    dto->statusOK = true;
     return createDtoResponse(Status::CODE_200, dto);
   }
   
-  // TODO Insert Your endpoints here !!!
+  ENDPOINT("GET", "/-/healthz", healthz) {
+    auto dto = StatusDto::createShared();
+    dto->statusOK = true;
+    return createDtoResponse(Status::CODE_200, dto);
+  }
+
+  ENDPOINT("GET", "/-/check-up", checkup) {
+    auto dto = StatusDto::createShared();
+    dto->statusOK = true;
+    return createDtoResponse(Status::CODE_200, dto);
+  }
   
 /**
  *  Finish ENDPOINTs generation ('ApiController' codegen)
@@ -70,4 +68,4 @@ public:
   
 };
 
-#endif /* HelloController_hpp */
+#endif /* StatusController_hpp */
