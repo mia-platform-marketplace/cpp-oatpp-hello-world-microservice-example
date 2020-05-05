@@ -6,8 +6,8 @@ EXPOSE 3000
 RUN apk --no-cache add cmake clang clang-dev make gcc g++ libc-dev linux-headers git
 
 ADD . /service
-WORKDIR /service/utility
-RUN ./install-oatpp-modules.sh
+WORKDIR /service/util
+RUN ./install-modules.sh
 
 ##########################################################################
 FROM install as build

@@ -1,17 +1,6 @@
-# Hello in C++
+# %CUSTOM_PLUGIN_SERVICE_NAME%
 
-based on oat++
-
-***** TODO ******
-
-valutare anche template con lib
-
-https://github.com/ipkn/crow (attenzione che deriva da nginx)
-https://github.com/uNetworking/uWebSockets
-https://github.com/yhirose/cpp-httplib
-
-e poi in java con https://github.com/netty/netty/blob/4.1/example/src/main/java/io/netty/example/http/helloworld/HttpHelloWorldServer.java
-
+Based on oat++
 
 ## Overview
 
@@ -27,32 +16,38 @@ e poi in java con https://github.com/netty/netty/blob/4.1/example/src/main/java/
 |    |- App.cpp                          // main() is here
 |
 |- test/                                 // test folder
-|- utility/install-oatpp-modules.sh      // utility script to install required oatpp-modules.  
+|- util/install-modules.sh      // utility script to install required oatpp-modules.  
 ```
-
----
 
 ### Build and Run
 
-#### Using CMake
-
-**Requires** 
-
-- `oatpp` module installed. You may run `utility/install-oatpp-modules.sh` 
+- `oatpp` module installed. You may run `util/install-modules.sh`
 script to install required oatpp modules.
 
 ```bash
-$ mkdir build && cd build
-$ cmake ..
-$ make 
-$ ./my-project-exe  # - run application.
+  mkdir build && cd build
+  cmake ..
+  make
+  ./mia-platform-cpp-helloworld-exe  
 
 ```
 
 #### In Docker
 
 ```bash
-$ docker build -t oatpp-starter .
-$ docker run -p 8000:8000 -t oatpp-starter
+  docker build -t oatpp-starter .
+  docker run -p 8000:8000 -t oatpp-starter
 ```
 
+### Remarks
+
+ Disable object counting for release builds using '-D OATPP_DISABLE_ENV_OBJECT_COUNTERS' flag for better performance.
+
+## Others implementations
+
+In May 2020 will be available also 
+
+- https://github.com/ipkn/crow (attenzione che deriva da nginx)
+- https://github.com/uNetworking/uWebSockets
+- https://github.com/yhirose/cpp-httplib
+- https://github.com/netty/netty/blob/4.1/example/src/main/java/io/netty/example/http/helloworld/HttpHelloWorldServer.java
