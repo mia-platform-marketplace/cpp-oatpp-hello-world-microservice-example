@@ -15,5 +15,17 @@
  * 
  * This project is a derivative work from oatpp-web-starter
  */
+#ifndef HelloWorldControllerTest_hpp
+#define HelloWorldControllerTest_hpp
 
-#include "HelloController.hpp"
+#include "oatpp-test/UnitTest.hpp"
+
+class HelloWorldControllerTest : public oatpp::test::UnitTest {
+public:
+
+  HelloWorldControllerTest() : UnitTest("TEST[HelloWorldControllerTest]"){}
+  void onRun() override;
+
+};
+
+#endif // HelloWorldControllerTest_hpp

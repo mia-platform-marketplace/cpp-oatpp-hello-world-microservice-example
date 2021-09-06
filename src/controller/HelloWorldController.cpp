@@ -15,23 +15,6 @@
  * 
  * This project is a derivative work from oatpp-web-starter
  */
+#include "HelloWorldController.hpp"
 
-#ifndef StatusDto_hpp
-#define StatusDto_hpp
-
-#include "oatpp/core/data/mapping/type/Object.hpp"
-#include "oatpp/core/macro/codegen.hpp"
-
-#include OATPP_CODEGEN_BEGIN(DTO)
-
-
-class StatusDto : public oatpp::data::mapping::type::Object {
-  
-  DTO_INIT(StatusDto, Object)
-  DTO_FIELD(Boolean, statusOK);
-  
-};
-
-#include OATPP_CODEGEN_END(DTO)
-
-#endif /* StatusDto_hpp */
+// TODO - SOME CODE HERE
