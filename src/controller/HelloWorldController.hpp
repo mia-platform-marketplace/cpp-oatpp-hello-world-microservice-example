@@ -33,7 +33,7 @@ public:
   {}
 public:
   
-  ENDPOINT("GET", "/", root) {
+  ENDPOINT("GET", "/hello", root) {
     auto dto = HelloDto::createShared();
     dto->statusCode = 200;
     dto->message = "Hello World!";

@@ -32,6 +32,14 @@ script to install required oatpp modules.
 
 ```
 
+Now, if you launch the following command on your terminal (remember to replace <YOUR_PROJECT_HOST> with the real host of your project):
+
+`curl <YOUR_PROJECT_HOST>/hello`
+
+you should see the following message:
+
+`{"message":"Hello World"}`
+
 #### In Docker
 
 ```bash

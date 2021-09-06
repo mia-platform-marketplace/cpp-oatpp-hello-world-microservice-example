@@ -33,7 +33,7 @@ class MyApiTestClient : public oatpp::web::client::ApiClient {
 
   API_CLIENT_INIT(MyApiTestClient)
 
-  API_CALL("GET", "/", getRoot)
+  API_CALL("GET", "/hello", getRoot)
 
   // TODO - add more client API calls here
 
