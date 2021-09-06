@@ -38,7 +38,7 @@ Now, if you launch the following command on your terminal (remember to replace <
 
 you should see the following message:
 
-`{"message":"Hello World"}`
+`{"statusCode":200,"message":"Hello World!"}`
 
 ### Remarks
 
