@@ -1,4 +1,4 @@
-# %CUSTOM_PLUGIN_SERVICE_NAME%
+# Mia-Platform Oat Cpp Hello World Example
 
 Based on oat++
 
