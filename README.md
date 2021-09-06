@@ -40,22 +40,6 @@ you should see the following message:
 
 `{"message":"Hello World"}`
 
-#### In Docker
-
-```bash
-  docker build -t oatpp-starter .
-  docker run -p 8000:8000 -t oatpp-starter
-```
-
 ### Remarks
 
  Disable object counting for release builds using '-D OATPP_DISABLE_ENV_OBJECT_COUNTERS' flag for better performance.
-
-## Others implementations
-
-In May 2020 will be available also 
-
-- https://github.com/ipkn/crow (attenzione che deriva da nginx)
-- https://github.com/uNetworking/uWebSockets
-- https://github.com/yhirose/cpp-httplib
-- https://github.com/netty/netty/blob/4.1/example/src/main/java/io/netty/example/http/helloworld/HttpHelloWorldServer.java
