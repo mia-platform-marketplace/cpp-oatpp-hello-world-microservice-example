@@ -15,12 +15,13 @@
  * 
  * This project is a derivative work from oatpp-web-starter
  */
-#include "./controller/HelloWorldController.hpp"
-#include "./AppComponent.hpp"
+
+#include <iostream>
 
 #include "oatpp/network/Server.hpp"
 
-#include <iostream>
+#include "./controller/HelloWorldController.hpp"
+#include "./AppComponent.hpp"
 
 void run() {
 
