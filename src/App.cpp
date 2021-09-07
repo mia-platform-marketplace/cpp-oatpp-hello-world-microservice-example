@@ -21,6 +21,7 @@
 #include "oatpp/network/Server.hpp"
 
 #include "./controller/HelloWorldController.hpp"
+#include "./controller/StatusController.hpp"
 #include "./AppComponent.hpp"
 
 void run() {
@@ -31,6 +32,9 @@ void run() {
 
   auto helloController = std::make_shared<HelloWorldController>();
   helloController->addEndpointsToRouter(router);
+
+  auto statusController = std::make_shared<StatusController>();
+  statusController->addEndpointsToRouter(router);
 
   OATPP_COMPONENT(std::shared_ptr<oatpp::network::ConnectionHandler>, connectionHandler);
   OATPP_COMPONENT(std::shared_ptr<oatpp::network::ServerConnectionProvider>, connectionProvider);
