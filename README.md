@@ -1,7 +1,5 @@
 # Oatpp C++ Template walkthrough
 
-[![Build Status][github-actions-svg]][github-actions]
-
 This walkthrough will explain you how to correctly create a microservice from a Springboot Template using our DevOps Console.
 
 ## Current Version
@@ -31,7 +29,7 @@ Step 3 of [Microservice from template - Get started](https://docs.mia-platform.e
 
 After having created an endpoint to your microservice you should save the changes that you have done to your project in the DevOps console.  
 Remember to choose a meaningful title for your commit (e.g "created service my_springboot_service_name"). After some seconds you will be prompted with a popup message which confirms that you have successfully saved all your changes.
-  
+
 Step 4 of [Microservice from template - Get started](https://docs.mia-platform.eu/development_suite/api-console/api-design/custom_microservice_get_started/#4-save-the-project) section of Mia-Platform documentation will explain how to correctly save the changes you have made on your project in the DevOps console.
 
 ## Deploy
