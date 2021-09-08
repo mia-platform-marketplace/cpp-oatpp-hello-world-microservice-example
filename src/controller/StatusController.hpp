@@ -15,7 +15,6 @@
  * 
  * This project is a derivative work from oatpp-web-starter
  */
-
 #ifndef StatusController_hpp
 #define StatusController_hpp
 

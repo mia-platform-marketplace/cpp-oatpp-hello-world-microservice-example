@@ -15,19 +15,18 @@
  * 
  * This project is a derivative work from oatpp-web-starter
  */
-
 #ifndef StatusDto_hpp
 #define StatusDto_hpp
 
-#include "oatpp/core/data/mapping/type/Object.hpp"
 #include "oatpp/core/macro/codegen.hpp"
+#include "oatpp/core/Types.hpp"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 
-class StatusDto : public oatpp::data::mapping::type::Object {
+class StatusDto : public oatpp::DTO{
   
-  DTO_INIT(StatusDto, Object)
+  DTO_INIT(StatusDto, DTO)
   DTO_FIELD(Boolean, statusOK);
   
 };

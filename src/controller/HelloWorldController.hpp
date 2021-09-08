@@ -15,9 +15,8 @@
  * 
  * This project is a derivative work from oatpp-web-starter
  */
-
-#ifndef HelloController_hpp
-#define HelloController_hpp
+#ifndef HelloWorldController_hpp
+#define HelloWorldController_hpp
 
 #include "dto/HelloDto.hpp"
 
@@ -25,36 +24,16 @@
 #include "oatpp/core/macro/codegen.hpp"
 #include "oatpp/core/macro/component.hpp"
 
-/**
- * Sample Api Controller.
- */
-class HelloController : public oatpp::web::server::api::ApiController {
+#include OATPP_CODEGEN_BEGIN(ApiController) //<-- Begin Codegen
+
+class HelloWorldController : public oatpp::web::server::api::ApiController {
 public:
-  /**
-   * Constructor with object mapper.
-   * @param objectMapper - default object mapper used to serialize/deserialize DTOs.
-   */
-  HelloController(OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper))
+  HelloWorldController(OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper))
     : oatpp::web::server::api::ApiController(objectMapper)
   {}
 public:
   
-/**
- *  Begin ENDPOINTs generation ('ApiController' codegen)
- */
-#include OATPP_CODEGEN_BEGIN(ApiController)
-
-
-  ENDPOINT_INFO(hello) {
-    // general
-    info->summary = "Say hello";
-    info->addResponse<HelloDto::ObjectWrapper>(Status::CODE_200, "application/json");
-    info->addResponse<String>(Status::CODE_404, "text/plain");
-    // params specific
-    info->pathParams["username"].description = "Username";
-  }
-  
-  ENDPOINT("GET", "/hello/{username}", hello) {
+  ENDPOINT("GET", "/hello", root) {
     auto dto = HelloDto::createShared();
     dto->statusCode = 200;
     dto->message = "Hello World!";
@@ -63,11 +42,8 @@ public:
   
   // TODO Insert Your endpoints here !!!
   
-/**
- *  Finish ENDPOINTs generation ('ApiController' codegen)
- */
-#include OATPP_CODEGEN_END(ApiController)
-  
 };
 
-#endif /* HelloController_hpp */
+#include OATPP_CODEGEN_END(ApiController) //<-- End Codegen
+
+#endif

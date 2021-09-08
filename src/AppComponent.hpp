@@ -15,34 +15,52 @@
  * 
  * This project is a derivative work from oatpp-web-starter
  */
-
 #ifndef AppComponent_hpp
 #define AppComponent_hpp
 
 #include "oatpp/web/server/HttpConnectionHandler.hpp"
-#include "oatpp/network/server/SimpleTCPConnectionProvider.hpp"
+
+#include "oatpp/network/tcp/server/ConnectionProvider.hpp"
+
 #include "oatpp/parser/json/mapping/ObjectMapper.hpp"
+
 #include "oatpp/core/macro/component.hpp"
 
-const int PORT = 3000;
-
-
+/**
+ *  Class which creates and holds Application components and registers components in oatpp::base::Environment
+ *  Order of components initialization is from top to bottom
+ */
 class AppComponent {
 public:
-
-  OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::ServerConnectionProvider>, serverConnectionProvider)([] {
-    return oatpp::network::server::SimpleTCPConnectionProvider::createShared(PORT);
-  }());
   
+  /**
+   *  Create ConnectionProvider component which listens on the port
+   */
+
+  static const int PORT = 8000;
+  
+  OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::ServerConnectionProvider>, serverConnectionProvider)([] {
+    return oatpp::network::tcp::server::ConnectionProvider::createShared({"0.0.0.0", PORT, oatpp::network::Address::IP_4});
+  }());
+
+  /**
+   *  Create Router component
+   */
   OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::web::server::HttpRouter>, httpRouter)([] {
     return oatpp::web::server::HttpRouter::createShared();
   }());
   
-  OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::server::ConnectionHandler>, serverConnectionHandler)([] {
+  /**
+   *  Create ConnectionHandler component which uses Router component to route requests
+   */
+  OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::ConnectionHandler>, serverConnectionHandler)([] {
     OATPP_COMPONENT(std::shared_ptr<oatpp::web::server::HttpRouter>, router); // get Router component
     return oatpp::web::server::HttpConnectionHandler::createShared(router);
   }());
   
+  /**
+   *  Create ObjectMapper component to serialize/deserialize DTOs in Contoller's API
+   */
   OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::data::mapping::ObjectMapper>, apiObjectMapper)([] {
     return oatpp::parser::json::mapping::ObjectMapper::createShared();
   }());

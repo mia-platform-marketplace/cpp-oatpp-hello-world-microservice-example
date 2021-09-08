@@ -16,24 +16,8 @@ cd $MODULE_NAME
 mkdir build
 cd build
 
-cmake ..
-make install
-
-cd ../../
-
-##########################################################
-## install oatpp-swagger
-
-MODULE_NAME="oatpp-swagger"
-
-git clone --depth=1 https://github.com/oatpp/$MODULE_NAME
-
-cd $MODULE_NAME
-mkdir build
-cd build
-
-cmake ..
-make install
+cmake -DOATPP_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release ..
+make install -j 6
 
 cd ../../
 

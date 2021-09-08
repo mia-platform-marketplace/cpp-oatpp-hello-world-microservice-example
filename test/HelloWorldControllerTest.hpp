@@ -15,26 +15,17 @@
  * 
  * This project is a derivative work from oatpp-web-starter
  */
+#ifndef HelloWorldControllerTest_hpp
+#define HelloWorldControllerTest_hpp
 
+#include "oatpp-test/UnitTest.hpp"
 
-#ifndef HelloApiTestClient_hpp
-#define HelloApiTestClient_hpp
+class HelloWorldControllerTest : public oatpp::test::UnitTest {
+public:
 
-#include "oatpp/web/client/ApiClient.hpp"
-#include "oatpp/core/macro/codegen.hpp"
-
-#include OATPP_CODEGEN_BEGIN(ApiClient)
-
-class HelloApiTestClient : public oatpp::web::client::ApiClient {
-
-  API_CLIENT_INIT(HelloApiTestClient)
-
-  API_CALL("GET", "/", getRoot)
-
-  // TODO - add more client API calls here
+  HelloWorldControllerTest() : UnitTest("TEST[HelloWorldControllerTest]"){}
+  void onRun() override;
 
 };
 
-#include OATPP_CODEGEN_END(ApiClient)
-
-#endif // HelloApiTestClient_hpp
+#endif // HelloWorldControllerTest_hpp

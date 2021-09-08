@@ -16,37 +16,32 @@
  * This project is a derivative work from oatpp-web-starter
  */
 
-#include "./controller/HelloController.hpp"
+#include <iostream>
+
+#include "oatpp/network/Server.hpp"
+
+#include "./controller/HelloWorldController.hpp"
 #include "./controller/StatusController.hpp"
 #include "./AppComponent.hpp"
-
-#include "oatpp/network/server/Server.hpp"
-
-
-#include <iostream>
 
 void run() {
 
   AppComponent components;
-
   OATPP_COMPONENT(std::shared_ptr<oatpp::web::server::HttpRouter>, router);
 
+
+  auto helloController = std::make_shared<HelloWorldController>();
+  helloController->addEndpointsToRouter(router);
 
   auto statusController = std::make_shared<StatusController>();
   statusController->addEndpointsToRouter(router);
 
-  auto swaggerController = oatpp::swagger::Controller::createShared(<list-of-endpoints-to-document>);
-  swaggerController->addEndpointsToRouter(router);
-
-  auto helloController = std::make_shared<HelloController>();
-  helloController->addEndpointsToRouter(router);
-
-  OATPP_COMPONENT(std::shared_ptr<oatpp::network::server::ConnectionHandler>, connectionHandler);
+  OATPP_COMPONENT(std::shared_ptr<oatpp::network::ConnectionHandler>, connectionHandler);
   OATPP_COMPONENT(std::shared_ptr<oatpp::network::ServerConnectionProvider>, connectionProvider);
 
-  oatpp::network::server::Server server(connectionProvider, connectionHandler);
-  OATPP_LOGI("Mia-Platform Hello World Example Server", "Server running on port %s", connectionProvider->getProperty("port").getData());
- 
+  oatpp::network::Server server(connectionProvider, connectionHandler);
+  OATPP_LOGI("Mia-Platform-Hello-World-Cpp", "Server running on port %s", connectionProvider->getProperty("port").getData());
+
   server.run();
   
 }

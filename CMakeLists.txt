@@ -8,14 +8,14 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_library(${project_name}-lib
         src/AppComponent.hpp
-        src/controller/HelloController.cpp
-        src/controller/HelloController.hpp
+        src/controller/HelloWorldController.cpp
+        src/controller/HelloWorldController.hpp
         src/dto/HelloDto.hpp
 )
 
 ## link libs
 
-find_package(oatpp 1.0.0 REQUIRED)
+find_package(oatpp 1.2.5 REQUIRED)
 
 target_link_libraries(${project_name}-lib
         PUBLIC oatpp::oatpp
@@ -28,16 +28,16 @@ target_include_directories(${project_name}-lib PUBLIC src)
 
 add_executable(${project_name}-exe
         src/App.cpp
-        test/app/HelloApiTestClient.hpp)
+        test/app/MyApiTestClient.hpp)
 target_link_libraries(${project_name}-exe ${project_name}-lib)
 add_dependencies(${project_name}-exe ${project_name}-lib)
 
 add_executable(${project_name}-test
         test/tests.cpp
         test/app/TestComponent.hpp
-        test/app/HelloApiTestClient.hpp
-        test/HelloControllerTest.cpp
-        test/HelloControllerTest.hpp
+        test/app/MyApiTestClient.hpp
+        test/HelloWorldControllerTest.cpp
+        test/HelloWorldControllerTest.hpp
 )
 
 target_link_libraries(${project_name}-test ${project_name}-lib)

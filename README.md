@@ -1,4 +1,4 @@
-# %CUSTOM_PLUGIN_SERVICE_NAME%
+# Mia-Platform Oat Cpp Hello World Example
 
 Based on oat++
 
@@ -10,7 +10,7 @@ Based on oat++
 |- CMakeLists.txt                        // projects CMakeLists.txt
 |- src/
 |    |
-|    |- controller/                      // Folder containing MyController where all endpoints are declared
+|    |- controller/                      // Folder containing HelloWorldController where all endpoints are declared
 |    |- dto/                             // DTOs are declared here
 |    |- AppComponent.hpp                 // Service config
 |    |- App.cpp                          // main() is here
@@ -32,22 +32,14 @@ script to install required oatpp modules.
 
 ```
 
-#### In Docker
+Now, if you launch the following command on your terminal (remember to replace <YOUR_PROJECT_HOST> with the real host of your project):
 
-```bash
-  docker build -t oatpp-starter .
-  docker run -p 8000:8000 -t oatpp-starter
-```
+`curl <YOUR_PROJECT_HOST>/hello`
+
+you should see the following message:
+
+`{"statusCode":200,"message":"Hello World!"}`
 
 ### Remarks
 
  Disable object counting for release builds using '-D OATPP_DISABLE_ENV_OBJECT_COUNTERS' flag for better performance.
-
-## Others implementations
-
-In May 2020 will be available also 
-
-- https://github.com/ipkn/crow (attenzione che deriva da nginx)
-- https://github.com/uNetworking/uWebSockets
-- https://github.com/yhirose/cpp-httplib
-- https://github.com/netty/netty/blob/4.1/example/src/main/java/io/netty/example/http/helloworld/HttpHelloWorldServer.java
