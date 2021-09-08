@@ -25,7 +25,7 @@ A more detailed description on how to create a Microservice can be found in [Mic
 ## Expose an endpoint to your microservice
 
 In order to access to your new microservice it is necessary to create an endpoint that targets it.  
-In particular, in this walkthrough you will create an endpoint to your microservice *my-springboot-service-name*. To do so, from the Design area of your project select _Endpoints_ and then create a new endpoint.
+In particular, in this walkthrough you will create an endpoint to your microservice *my-oat-cpp-service-name*. To do so, from the Design area of your project select _Endpoints_ and then create a new endpoint.
 Now you need to choose a path for your endpoint and to connect this endpoint to your microservice. Give to your endpoint the following path: **/oat-cpp**. Then, specify that you want to connect your endpoint to a microservice and, finally, select *my-oat-cpp-service-name*.  
 In the subsequent menu inside the field `Rewrite Base Path`, give the path: **/hello**
 Step 3 of [Microservice from template - Get started](https://docs.mia-platform.eu/development_suite/api-console/api-design/custom_microservice_get_started/#3-creating-the-endpoint) section of Mia-Platform documentation will explain in detail how to create an endpoint from the DevOps Console.
