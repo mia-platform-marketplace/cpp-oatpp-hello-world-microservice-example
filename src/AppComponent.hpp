@@ -37,7 +37,7 @@ public:
    *  Create ConnectionProvider component which listens on the port
    */
 
-  static const int PORT = 8000;
+  static const int PORT = 3000;
   
   OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::ServerConnectionProvider>, serverConnectionProvider)([] {
     return oatpp::network::tcp::server::ConnectionProvider::createShared({"0.0.0.0", PORT, oatpp::network::Address::IP_4});
