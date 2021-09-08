@@ -14,4 +14,4 @@ To start the application locally
 
 ```
 
-By default the service will run on port 3000, to change the port please set `HTTP_PORT` env variable
+By default the service will run on port 3000
