@@ -1,5 +1,7 @@
 # Oatpp C++ Template walkthrough
 
+> ⚠️ Warning: this repository is no longer maintained.
+
 This walkthrough will explain you how to correctly create a microservice from a Springboot Template using our DevOps Console.
 
 ## Current Version
